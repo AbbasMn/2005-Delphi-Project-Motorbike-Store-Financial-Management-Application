@@ -1,0 +1,338 @@
+unit Unt_datam_input_data;
+
+interface
+
+uses
+  SysUtils, Classes, DB, ADODB;
+
+type
+  TDataM_input_data = class(TDataModule)
+    ADOConnection1: TADOConnection;
+    ADOQ_forosh: TADOQuery;
+    ADOQ_show_kholase_forosh: TADOQuery;
+    ADOQ_show_hame_bar_asase_kholase: TADOQuery;
+    ADOQ_show_kholase_foroshkharidar_name: TWideStringField;
+    ADOQ_show_kholase_foroshkharidar_family: TWideStringField;
+    ADOQ_show_kholase_foroshkharidar_pedar: TWideStringField;
+    ADOQ_show_kholase_foroshmotor_name: TWideStringField;
+    ADOQ_show_kholase_foroshforosh_tarikh: TWideStringField;
+    ADOQ_show_kholase_foroshcod: TAutoIncField;
+    ADOQ_show_hame_bar_asase_kholaseforosh_geymat: TFloatField;
+    ADOQ_show_hame_bar_asase_kholaseforosh_nagd: TFloatField;
+    ADOQ_show_hame_bar_asase_kholaseforosh_bagimande: TFloatField;
+    ADOQ_show_hame_bar_asase_kholaseforosh_tedad_gest: TSmallintField;
+    ADOQ_show_hame_bar_asase_kholaseforosh_mablagh_gest: TFloatField;
+    ADOQ_show_hame_bar_asase_kholaseforosh_tarikh: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasecod: TAutoIncField;
+    ADOQ_show_hame_bar_asase_kholasemotor_name: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasemotor_system: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasemotor_model: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasemotor_sale_sakht: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasemotor_shomare_tane: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasemotor_shomare_motor: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasemotor_rang: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasemotor_plak_bala: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasemotor_plak_shahr: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasemotor_plak_paein: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasemotor_tozihat: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasekharidar_name: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasekharidar_family: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasekharidar_pedar: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasekharidar_sh_shenasname: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasekharidar_sadere: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasekharidar_tavalod: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasekharidar_cod_meli: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasekharidar_tele_sabet: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasekharidar_tele_hamrah: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasekharidar_adress: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholaseforosh_darsad_sod: TSmallintField;
+    ADOQ_show_hame_bar_asase_kholaseforosh_mablaghe_sod: TFloatField;
+    ADOQ_show_hame_bar_asase_kholaseforosh_bagimande_kol: TFloatField;
+    ADOQ_show_hame_bar_asase_kholasezemanat_bank: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasezemanat_shobe: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasezemanat_tarikh_check: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasezemanat_jari: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasezemanat_sab_check: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasezemanat_shomare_check: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasezemanat_mablagh_check: TFloatField;
+    ADOQ_show_hame_bar_asase_kholasetedad_gest_pardakhti: TIntegerField;
+    ADOQ_show_hame_bar_asase_kholasetedad_gest_mande: TIntegerField;
+    ADOQ_show_kholase_forosh_vase_pardakht_gest: TADOQuery;
+    ADOQ_show_kholase_forosh_vase_pardakht_gestkharidar_family: TWideStringField;
+    ADOQ_show_kholase_forosh_vase_pardakht_gestforosh_tarikh: TWideStringField;
+    ADOQ_show_kholase_forosh_vase_pardakht_gesttedad_gest_pardakhti: TIntegerField;
+    ADOQ_show_kholase_forosh_vase_pardakht_gesttedad_gest_mande: TIntegerField;
+    ADOQ_show_kholase_forosh_vase_pardakht_gestcod: TAutoIncField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarha: TADOQuery;
+    ADOQ_foroshforosh_geymat: TFloatField;
+    ADOQ_foroshforosh_nagd: TFloatField;
+    ADOQ_foroshforosh_bagimande: TFloatField;
+    ADOQ_foroshforosh_tedad_gest: TSmallintField;
+    ADOQ_foroshforosh_mablagh_gest: TFloatField;
+    ADOQ_foroshforosh_tarikh: TWideStringField;
+    ADOQ_foroshcod: TAutoIncField;
+    ADOQ_foroshmotor_name: TWideStringField;
+    ADOQ_foroshmotor_system: TWideStringField;
+    ADOQ_foroshmotor_model: TWideStringField;
+    ADOQ_foroshmotor_sale_sakht: TWideStringField;
+    ADOQ_foroshmotor_shomare_tane: TWideStringField;
+    ADOQ_foroshmotor_shomare_motor: TWideStringField;
+    ADOQ_foroshmotor_rang: TWideStringField;
+    ADOQ_foroshmotor_plak_bala: TWideStringField;
+    ADOQ_foroshmotor_plak_shahr: TWideStringField;
+    ADOQ_foroshmotor_plak_paein: TWideStringField;
+    ADOQ_foroshmotor_tozihat: TWideStringField;
+    ADOQ_foroshkharidar_name: TWideStringField;
+    ADOQ_foroshkharidar_family: TWideStringField;
+    ADOQ_foroshkharidar_pedar: TWideStringField;
+    ADOQ_foroshkharidar_sh_shenasname: TWideStringField;
+    ADOQ_foroshkharidar_sadere: TWideStringField;
+    ADOQ_foroshkharidar_tavalod: TWideStringField;
+    ADOQ_foroshkharidar_cod_meli: TWideStringField;
+    ADOQ_foroshkharidar_tele_sabet: TWideStringField;
+    ADOQ_foroshkharidar_tele_hamrah: TWideStringField;
+    ADOQ_foroshkharidar_adress: TWideStringField;
+    ADOQ_foroshforosh_darsad_sod: TSmallintField;
+    ADOQ_foroshforosh_mablaghe_sod: TFloatField;
+    ADOQ_foroshforosh_bagimande_kol: TFloatField;
+    ADOQ_foroshzemanat_bank: TWideStringField;
+    ADOQ_foroshzemanat_shobe: TWideStringField;
+    ADOQ_foroshzemanat_tarikh_check: TWideStringField;
+    ADOQ_foroshzemanat_jari: TWideStringField;
+    ADOQ_foroshzemanat_sab_check: TWideStringField;
+    ADOQ_foroshzemanat_shomare_check: TWideStringField;
+    ADOQ_foroshzemanat_mablagh_check: TFloatField;
+    ADOQ_foroshtedad_gest_pardakhti: TIntegerField;
+    ADOQ_foroshtedad_gest_mande: TIntegerField;
+    ADOQ_foroshroze_pardakhte_gest: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_geymat: TFloatField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_nagd: TFloatField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_bagimande: TFloatField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_tedad_gest: TSmallintField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_mablagh_gest: TFloatField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_tarikh: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhacod: TAutoIncField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_name: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_system: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_model: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_sale_sakht: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_shomare_tane: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_shomare_motor: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_rang: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_plak_bala: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_plak_shahr: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_plak_paein: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_tozihat: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_name: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_family: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_pedar: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_sh_shenasname: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_sadere: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_tavalod: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_cod_meli: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_tele_sabet: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_tele_hamrah: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_adress: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_darsad_sod: TSmallintField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_mablaghe_sod: TFloatField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_bagimande_kol: TFloatField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhazemanat_bank: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhazemanat_shobe: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhazemanat_tarikh_check: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhazemanat_jari: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhazemanat_sab_check: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhazemanat_shomare_check: TWideStringField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhazemanat_mablagh_check: TFloatField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhatedad_gest_pardakhti: TIntegerField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarhatedad_gest_mande: TIntegerField;
+    show_bedehkare_gest_bar_asase_kholase_bedehkarharoze_pardakhte_gest: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholaseroze_pardakhte_gest: TWideStringField;
+    ADOQ_bime: TADOQuery;
+    ADOQ_bimecod_forosh: TIntegerField;
+    ADOQ_bimecod: TAutoIncField;
+    ADOQ_bimebime_tahvil: TWideStringField;
+    ADOQ_bime2: TADOQuery;
+    IntegerField1: TIntegerField;
+    AutoIncField1: TAutoIncField;
+    WideStringField1: TWideStringField;
+    ADOQ_foroshtarikh_pardakht_geste_badi: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasetarikh_pardakht_geste_badi: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasejarime_kol: TFloatField;
+    ADOQ_foroshjarime_kol: TFloatField;
+    ADOQ_foroshforosh_geymate_nahaei: TFloatField;
+    ADOQ_foroshzemanat_telephon: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholaseforosh_geymate_nahaei: TFloatField;
+    ADOQ_show_hame_bar_asase_kholasezemanat_telephon: TWideStringField;
+    ADOQ_check_dovom: TADOQuery;
+    ADOQ_check_dovomkharidar_family: TWideStringField;
+    ADOQ_check_dovomkharidar_sh_shenasname: TWideStringField;
+    ADOQ_check_dovomforosh_tarikh: TWideStringField;
+    ADOQ_check_dovomzemanat_bank: TWideStringField;
+    ADOQ_check_dovomzemanat_shobe: TWideStringField;
+    ADOQ_check_dovomzemanat_tarikh_check: TWideStringField;
+    ADOQ_check_dovomzemanat_jari: TWideStringField;
+    ADOQ_check_dovomzemanat_sab_check: TWideStringField;
+    ADOQ_check_dovomzemanat_shomare_check: TWideStringField;
+    ADOQ_check_dovomzemanat_mablagh_check: TFloatField;
+    ADOQ_check_dovomzemanat_telephon: TWideStringField;
+    ADOQ_check_dovomcod: TAutoIncField;
+    ADOQ_kharid_motor: TADOQuery;
+    ADOQ_kharid_motormotor_name: TWideStringField;
+    ADOQ_kharid_motormotor_system: TWideStringField;
+    ADOQ_kharid_motormotor_model: TWideStringField;
+    ADOQ_kharid_motormotor_sale_sakht: TWideStringField;
+    ADOQ_kharid_motormotor_shomare_tane: TWideStringField;
+    ADOQ_kharid_motormotor_shomare_motor: TWideStringField;
+    ADOQ_kharid_motormotor_rang: TWideStringField;
+    ADOQ_kharid_motormotor_plak_bala: TWideStringField;
+    ADOQ_kharid_motormotor_plak_shahr: TWideStringField;
+    ADOQ_kharid_motormotor_plak_paein: TWideStringField;
+    ADOQ_kharid_motorcod: TAutoIncField;
+    ADOQ_kharid_motormotor_forosh: TWideStringField;
+    ADOQ_foroshkharidar_code_posti: TWideStringField;
+    ADOQ_show_hame_bar_asase_kholasekharidar_code_posti: TWideStringField;
+    ADOQ_tedad_mototr_bar_system: TADOQuery;
+    ADOQ_tedad_mototr_bar_systemtedad_: TIntegerField;
+    ADOQ_tedad_mototr_bar_systemmotor_system: TWideStringField;
+    procedure ADOQ_show_kholase_foroshAfterScroll(DataSet: TDataSet);
+    procedure ADOQ_show_kholase_forosh_vase_pardakht_gestAfterScroll(
+      DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataM_input_data: TDataM_input_data;
+
+implementation
+
+uses unt_show_forosh, unt_pardakht_gest, unt_sabt_pardakht_gest, unt_main,
+  unt_DataM_tahvil_joz, unt_search_forosh, unt_print_pardakhte_gest;
+
+{$R *.dfm}
+
+
+
+procedure TDataM_input_data.ADOQ_show_kholase_foroshAfterScroll(
+  DataSet: TDataSet);
+  begin
+
+   if frm_search_forosh<>nil then
+  begin
+    if  DataM_input_data.ADOQ_show_kholase_forosh.RecordCount<=0 then
+      frm_search_forosh.GroupBox1.Visible:=false
+    else
+    begin
+      frm_search_forosh.GroupBox1.Visible:=true;
+   
+      frm_show_forosh.show_hame_bar_asase_kholase_foroshha;
+
+    frm_pardakht_gest.L_cod.Caption:=DataM_input_data.ADOQ_show_kholase_foroshcod.AsString;
+    if frm_pardakht_gest.L_cod.Caption<>'-1'then
+    begin
+      frm_pardakht_gest.show_pardakhthaye_gest;
+      frm_pardakht_gest.show_jame_pardakht_gest;
+    end;
+  if frm_search_forosh.DBText22.Caption='0' then
+   begin
+     frm_search_forosh.Label28.Visible:=false;
+     frm_search_forosh.Label29.Visible:=false;
+     frm_search_forosh.Label26.Visible:=false;
+     frm_search_forosh.Label39.Visible:=false;
+     frm_search_forosh.Label45.Visible:=false;
+     frm_search_forosh.Label43.Visible:=false;
+     frm_search_forosh.DBText22.Visible:=false;
+     frm_search_forosh.DBText28.Visible:=false;
+     frm_search_forosh.DBText39.Visible:=false;
+     frm_search_forosh.DBText38.Visible:=false;
+   end
+   else
+   begin
+     frm_search_forosh.Label28.Visible:=true;
+     frm_search_forosh.Label29.Visible:=true;
+     frm_search_forosh.Label26.Visible:=true;
+     frm_search_forosh.Label39.Visible:=true;
+     frm_search_forosh.Label45.Visible:=true;
+     frm_search_forosh.Label43.Visible:=true;
+     frm_search_forosh.DBText22.Visible:=true;
+     frm_search_forosh.DBText28.Visible:=true;
+     frm_search_forosh.DBText39.Visible:=true;
+     frm_search_forosh.DBText38.Visible:=true;
+   end;
+    end;
+
+  end;
+
+
+
+
+
+
+
+
+
+   if frm_show_forosh<>nil then
+  begin
+    if  DataM_input_data.ADOQ_show_kholase_forosh.RecordCount<=0 then
+      frm_show_forosh.GroupBox1.Visible:=false
+    else
+    begin
+      frm_show_forosh.GroupBox1.Visible:=true;
+   
+      frm_show_forosh.show_hame_bar_asase_kholase_foroshha;
+
+      frm_sabt_pardakht_gest.L_cod_forosh.Caption:=DataM_input_data.ADOQ_show_hame_bar_asase_kholasecod.AsString;
+      frm_show_forosh.find_tarikhe_akharin_pardakhte_geste;
+
+      frm_show_forosh.show_joziat_forosh;
+  if frm_show_forosh.DBText22.Caption='0' then
+   begin
+     frm_show_forosh.Label28.Visible:=false;
+     frm_show_forosh.Label29.Visible:=false;
+     frm_show_forosh.Label26.Visible:=false;
+     frm_show_forosh.Label39.Visible:=false;
+     frm_show_forosh.Label45.Visible:=false;
+     frm_show_forosh.Label43.Visible:=false;
+     frm_show_forosh.DBText22.Visible:=false;
+     frm_show_forosh.DBText28.Visible:=false;
+     frm_show_forosh.DBText39.Visible:=false;
+     frm_show_forosh.DBText38.Visible:=false;
+   end
+   else
+   begin
+     frm_show_forosh.Label28.Visible:=true;
+     frm_show_forosh.Label29.Visible:=true;
+     frm_show_forosh.Label26.Visible:=true;
+     frm_show_forosh.Label39.Visible:=true;
+     frm_show_forosh.Label45.Visible:=true;
+     frm_show_forosh.Label43.Visible:=true;
+     frm_show_forosh.DBText22.Visible:=true;
+     frm_show_forosh.DBText28.Visible:=true;
+     frm_show_forosh.DBText39.Visible:=true;
+     frm_show_forosh.DBText38.Visible:=true;
+   end;
+    end;
+
+  end;
+
+end;
+
+procedure TDataM_input_data.ADOQ_show_kholase_forosh_vase_pardakht_gestAfterScroll(
+  DataSet: TDataSet);
+begin
+  {if frm_pardakht_gest<>nil then
+  begin
+    frm_pardakht_gest.L_cod.Caption:=ADOQ_show_kholase_forosh_vase_pardakht_gestcod.AsString;
+    frm_pardakht_gest.show_bedehkare_gest_bar_asase_kholase_bedehkarha;
+    if frm_pardakht_gest.L_cod.Caption<>'-1'then
+    begin
+      frm_pardakht_gest.show_pardakhthaye_gest;
+      frm_pardakht_gest.show_jame_pardakht_gest;
+      frm_pardakht_gest.show_jame_jarime_gest;
+    end;
+  end;}
+end;
+
+end.

@@ -1,0 +1,254 @@
+unit unt_tedad_motor_bar_system;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, Grids, DBGrids, SUIDBCtrls, SUIButton, StdCtrls, Mask,
+  DBCtrls, ExtCtrls;
+
+type
+  TFrm_tedad_motor_bar_system = class(TForm)
+    suiDBGrid1: TsuiDBGrid;
+    DataSource1: TDataSource;
+    GroupBox2: TGroupBox;
+    RadioGroup1: TRadioGroup;
+    g_sal: TGroupBox;
+    Label1: TLabel;
+    g_tarikh: TGroupBox;
+    RadioGroup2: TRadioGroup;
+    MaskEditrooz: TMaskEdit;
+    MaskEditmah: TMaskEdit;
+    MaskEditsal: TMaskEdit;
+    g_b_tarikh: TGroupBox;
+    Label7: TLabel;
+    Label9: TLabel;
+    Label11: TLabel;
+    Label8: TLabel;
+    Label10: TLabel;
+    Label12: TLabel;
+    E_roz_ebteda: TEdit;
+    E_mah_ebteda: TEdit;
+    E_sal_ebteda: TEdit;
+    E_roz_enteha: TEdit;
+    E_mah_enteha: TEdit;
+    E_sal_enteha: TEdit;
+    suiButton1: TsuiButton;
+    E_sal: TEdit;
+    procedure FormShow(Sender: TObject);
+    procedure E_roz_ebtedaExit(Sender: TObject);
+    procedure E_roz_entehaExit(Sender: TObject);
+    procedure E_mah_ebtedaExit(Sender: TObject);
+    procedure E_mah_entehaExit(Sender: TObject);
+    procedure E_roz_ebtedaKeyPress(Sender: TObject; var Key: Char);
+    procedure E_roz_entehaKeyPress(Sender: TObject; var Key: Char);
+    procedure E_mah_ebtedaKeyPress(Sender: TObject; var Key: Char);
+    procedure E_mah_entehaKeyPress(Sender: TObject; var Key: Char);
+    procedure E_sal_entehaKeyPress(Sender: TObject; var Key: Char);
+    procedure show_beine_do_tarikh;
+    procedure show_tarikh;
+    procedure show_sal;
+    procedure suiButton1Click(Sender: TObject);
+    procedure RadioGroup2Click(Sender: TObject);
+    procedure E_salKeyPress(Sender: TObject; var Key: Char);
+    procedure E_sal_ebtedaKeyPress(Sender: TObject; var Key: Char);
+    procedure E_salChange(Sender: TObject);
+    procedure type_;
+    procedure RadioGroup1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_tedad_motor_bar_system: TFrm_tedad_motor_bar_system;
+
+implementation
+
+uses Unt_datam_input_data, unt_login, Taghvim, unt_main;
+
+{$R *.dfm}
+procedure TFrm_tedad_motor_bar_system.type_;
+begin
+  If RadioGroup1.ItemIndex=0 then
+  begin
+    g_tarikh.Visible:=true;
+    g_b_tarikh.Visible:=false;
+    g_sal.Visible:=false;
+    show_tarikh;
+  end;
+
+  If RadioGroup1.ItemIndex=1 then
+  begin
+    g_tarikh.Visible:=false;
+    g_b_tarikh.Visible:=false;
+    g_sal.Visible:=true;
+    E_sal.Text:='';
+    show_sal;
+  end;
+
+  If RadioGroup1.ItemIndex=2 then
+  begin
+    g_tarikh.Visible:=false;
+    g_b_tarikh.Visible:=true;
+    g_sal.Visible:=false;
+  end;
+end;
+
+procedure TFrm_tedad_motor_bar_system.show_sal;
+begin
+ DataM_input_data.ADOQ_tedad_mototr_bar_system.SQL.Text:='select  count(*) as tedad_ ,motor_system,sum(forosh_mablaghe_sod) as sode_kol'+
+ ' from T_moshakhasate_forosh where forosh_tarikh like '+QuotedStr('%'+E_sal.Text+'%')+' group by motor_system';
+ DataM_input_data.ADOQ_tedad_mototr_bar_system.Open;
+end;
+
+procedure TFrm_tedad_motor_bar_system.show_tarikh;
+begin
+ DataM_input_data.ADOQ_tedad_mototr_bar_system.SQL.Text:='select  count(*) as tedad_ ,motor_system,sum(forosh_mablaghe_sod) as sode_kol'+
+ ' from T_moshakhasate_forosh where forosh_tarikh='+QuotedStr(MaskEditsal.Text+'/'+MaskEditmah.Text+'/'+MaskEditrooz.Text)+
+ ' group by motor_system';
+ DataM_input_data.ADOQ_tedad_mototr_bar_system.Open;
+end;
+
+procedure TFrm_tedad_motor_bar_system.show_beine_do_tarikh;
+begin
+ DataM_input_data.ADOQ_tedad_mototr_bar_system.SQL.Text:='select  count(*) as tedad_ ,motor_system,sum(forosh_mablaghe_sod) as sode_kol'+
+ ' from T_moshakhasate_forosh where forosh_tarikh between '+
+ QuotedStr(E_sal_ebteda.Text+'/'+E_mah_ebteda.Text+'/'+E_roz_ebteda.Text)+' and '+
+ QuotedStr(E_sal_enteha.Text+'/'+E_mah_enteha.Text+'/'+E_roz_enteha.Text)+
+ ' group by motor_system';
+ DataM_input_data.ADOQ_tedad_mototr_bar_system.Open;
+end;
+procedure TFrm_tedad_motor_bar_system.FormShow(Sender: TObject);
+begin
+  Frm_tedad_motor_bar_system.WindowState:=wsMaximized;
+  RadioGroup1.ItemIndex:=0;
+  RadioGroup2.ItemIndex:=0;
+
+      MaskEditrooz.Enabled :=false;
+      MaskEditmah.Enabled :=false;
+      MaskEditsal.Enabled :=false;
+      MaskEditrooz.Text :=frm_login.Egettarikh.Text[9]+frm_login.Egettarikh.Text[10];
+      MaskEditmah.Text :=frm_login.Egettarikh.Text[6]+frm_login.Egettarikh.Text[7];
+      MaskEditsal.Text :=frm_login.Egettarikh.Text[1]+frm_login.Egettarikh.Text[2]+frm_login.Egettarikh.Text[3]+frm_login.Egettarikh.Text[4];
+    type_;
+end;
+
+procedure TFrm_tedad_motor_bar_system.E_roz_ebtedaExit(Sender: TObject);
+var ss:string;
+begin
+  if StrLen(pchar(trim(E_roz_ebteda.Text)))<=1 then
+    E_roz_ebteda.Text:='0'+E_roz_ebteda.Text;
+
+end;
+
+procedure TFrm_tedad_motor_bar_system.E_roz_entehaExit(Sender: TObject);
+begin
+  if StrLen(pchar(trim(E_roz_enteha.Text)))<=1 then
+    E_roz_enteha.Text:='0'+E_roz_enteha.Text;
+end;
+
+procedure TFrm_tedad_motor_bar_system.E_mah_ebtedaExit(Sender: TObject);
+begin
+  if StrLen(pchar(trim(E_mah_ebteda.Text)))<=1 then
+    E_mah_ebteda.Text:='0'+E_mah_ebteda.Text;
+end;
+
+procedure TFrm_tedad_motor_bar_system.E_mah_entehaExit(Sender: TObject);
+begin
+  if StrLen(pchar(trim(E_mah_enteha.Text)))<=1 then
+    E_mah_enteha.Text:='0'+E_mah_enteha.Text;
+end;
+
+procedure TFrm_tedad_motor_bar_system.E_roz_ebtedaKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+ if not (key in['0'..'9',#8]) then
+   key:=#0;
+end;
+
+procedure TFrm_tedad_motor_bar_system.E_roz_entehaKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+ if not (key in['0'..'9',#8]) then
+   key:=#0;
+end;
+
+procedure TFrm_tedad_motor_bar_system.E_mah_ebtedaKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+ if not (key in['0'..'9',#8]) then
+   key:=#0;
+end;
+
+procedure TFrm_tedad_motor_bar_system.E_mah_entehaKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+ if not (key in['0'..'9',#8]) then
+   key:=#0;
+end;
+
+
+
+procedure TFrm_tedad_motor_bar_system.E_sal_entehaKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+ if not (key in['0'..'9',#8]) then
+   key:=#0;
+end;
+
+procedure TFrm_tedad_motor_bar_system.suiButton1Click(Sender: TObject);
+begin
+  show_beine_do_tarikh;
+end;
+
+procedure TFrm_tedad_motor_bar_system.RadioGroup2Click(Sender: TObject);
+begin
+ if RadioGroup2.ItemIndex =0  then
+    begin
+      MaskEditrooz.Enabled :=false;
+      MaskEditmah.Enabled :=false;
+      MaskEditsal.Enabled :=false;
+      MaskEditrooz.Text :=frm_login.Egettarikh.Text[9]+frm_login.Egettarikh.Text[10];
+      MaskEditmah.Text :=frm_login.Egettarikh.Text[6]+frm_login.Egettarikh.Text[7];
+      MaskEditsal.Text :=frm_login.Egettarikh.Text[1]+frm_login.Egettarikh.Text[2]+frm_login.Egettarikh.Text[3]+frm_login.Egettarikh.Text[4];
+    end
+  else
+    begin
+      _Taghvim.ShowModal;
+      if _taghvim._str_date<>'' then
+      begin
+        MaskEditsal.Text:=_Taghvim._str_date[1]+_Taghvim._str_date[2]+ _Taghvim._str_date[3]+_Taghvim._str_date[4];
+        MaskEditMah.Text:=_Taghvim._str_date[6]+_Taghvim._str_date[7];
+        MaskEditRooz.Text:=_Taghvim._str_date[9]+_Taghvim._str_date[10];
+      end;
+    end;
+    show_tarikh;
+end;
+
+procedure TFrm_tedad_motor_bar_system.E_salKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+ if not (key in['0'..'9',#8]) then
+   key:=#0;
+end;
+
+procedure TFrm_tedad_motor_bar_system.E_sal_ebtedaKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+ if not (key in['0'..'9',#8]) then
+   key:=#0;
+end;
+
+procedure TFrm_tedad_motor_bar_system.E_salChange(Sender: TObject);
+begin
+  show_sal;
+end;
+
+procedure TFrm_tedad_motor_bar_system.RadioGroup1Click(Sender: TObject);
+begin
+  type_;
+end;
+
+end.

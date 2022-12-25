@@ -1,0 +1,147 @@
+unit unt_view_anbar_motor;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, Grids, DBGrids, SUIDBCtrls, StdCtrls, ExtCtrls, SUIEdit;
+
+type
+  Tfrm_view_anbar_motor = class(TForm)
+    suiDBGrid1: TsuiDBGrid;
+    DataSource1: TDataSource;
+    RadioGroup1: TRadioGroup;
+    Label13: TLabel;
+    e_motor_plak_bala: TsuiEdit;
+    Bt: TButton;
+    Button1: TButton;
+    procedure show_kole_motorha;
+    procedure show_motorhaye_forokhte_shode;
+    procedure show_motorhaye_forokhte_nashode;
+    procedure FormShow(Sender: TObject);
+    procedure type_;
+    procedure RadioGroup1Click(Sender: TObject);
+    procedure e_motor_plak_balaKeyPress(Sender: TObject; var Key: Char);
+    procedure e_motor_plak_paeinKeyPress(Sender: TObject; var Key: Char);
+    procedure e_motor_plak_balaChange(Sender: TObject);
+    procedure BtClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_view_anbar_motor: Tfrm_view_anbar_motor;
+
+implementation
+
+uses unt_data_input, Unt_datam_input_data, unt_eslahe_motor;
+
+{$R *.dfm}
+
+procedure Tfrm_view_anbar_motor.show_motorhaye_forokhte_nashode;
+begin
+ DataM_input_data.ADOQ_kharid_motor.SQL.Text:='select * from T_motors where motor_forosh='+QuotedStr('›—ÊŒ Â ‰‘œÂ')+
+ ' order by motor_forosh,motor_plak_shahr,motor_plak_bala';
+ DataM_input_data.ADOQ_kharid_motor.Open;
+end;
+
+procedure Tfrm_view_anbar_motor.show_motorhaye_forokhte_shode;
+begin
+ DataM_input_data.ADOQ_kharid_motor.SQL.Text:='select * from T_motors where motor_forosh='+QuotedStr('›—ÊŒ Â ‘œÂ')+
+ ' order by motor_forosh,motor_plak_shahr,motor_plak_bala';
+ DataM_input_data.ADOQ_kharid_motor.Open;
+end;
+
+
+procedure Tfrm_view_anbar_motor.type_;
+begin
+  if RadioGroup1.ItemIndex=0 then
+    show_kole_motorha;
+
+  if RadioGroup1.ItemIndex=1 then
+    show_motorhaye_forokhte_shode;
+
+  if RadioGroup1.ItemIndex=2 then
+    show_motorhaye_forokhte_nashode;
+end;
+
+procedure Tfrm_view_anbar_motor.show_kole_motorha;
+begin
+ DataM_input_data.ADOQ_kharid_motor.SQL.Text:='select * from T_motors order by motor_forosh,motor_plak_shahr,motor_plak_bala';
+ DataM_input_data.ADOQ_kharid_motor.Open;
+end;
+
+procedure Tfrm_view_anbar_motor.FormShow(Sender: TObject);
+begin
+  RadioGroup1.ItemIndex:=0;
+  type_;
+  frm_view_anbar_motor.WindowState:=wsMaximized;
+
+  e_motor_plak_bala.Clear;
+
+end;
+
+procedure Tfrm_view_anbar_motor.RadioGroup1Click(Sender: TObject);
+begin
+  type_;
+end;
+
+procedure Tfrm_view_anbar_motor.e_motor_plak_balaKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+ if not (key in['0'..'9',#8]) then
+   key:=#0;
+end;
+
+procedure Tfrm_view_anbar_motor.e_motor_plak_paeinKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+ if not (key in['0'..'9',#8]) then
+   key:=#0;
+end;
+
+procedure Tfrm_view_anbar_motor.e_motor_plak_balaChange(Sender: TObject);
+begin
+  DataM_input_data.ADOQ_kharid_motor.Locate('motor_plak_bala',e_motor_plak_bala.Text,[loPartialKey]);
+end;
+
+procedure Tfrm_view_anbar_motor.BtClick(Sender: TObject);
+begin
+  if DataM_input_data.ADOQ_kharid_motor.RecordCount=0 then
+     MessageBox(Handle,'„Ê Ê— ”Ìò·  «‰ Œ«» ‰‘œÂ «” ','!Œÿ«',MB_OK or MB_RIGHT or MB_RTLREADING or MB_ICONEXCLAMATION)
+  else
+  begin
+    if DataM_input_data.ADOQ_kharid_motormotor_forosh.AsString='›—ÊŒ Â ‘œÂ' then
+     MessageBox(Handle,'»œ·Ì· ›—Œ Â ‘œ‰ „Ê Ê— «‰ Œ«»Ì ° «“ «Ì‰ ﬁ”„  ‰„Ì  Ê«‰Ìœ „‘Œ’«  —« ÊÌ—«Ì‘ ‰„«ÌÌœ «“ ﬁ”„  «’·«Õ«  -- > «’·«Õ „‘Œ’«  „Ê Ê— «” ›«œÂ ‰„«ÌÌœ','!Œÿ«',MB_OK or MB_RIGHT or MB_ICONEXCLAMATION)
+    else
+    begin
+      frm_eslahe_motor.l_type.Caption:='anbar';
+      frm_eslahe_motor.ShowModal;
+    end;
+  end;
+end;
+
+procedure Tfrm_view_anbar_motor.Button1Click(Sender: TObject);
+begin
+  if DataM_input_data.ADOQ_kharid_motor.RecordCount=0 then
+     MessageBox(Handle,'„Ê Ê— ”Ìò·  «‰ Œ«» ‰‘œÂ «” ','!Œÿ«',MB_OK or MB_RIGHT or MB_RTLREADING or MB_ICONEXCLAMATION)
+  else
+  begin
+    if DataM_input_data.ADOQ_kharid_motormotor_forosh.AsString='›—ÊŒ Â ‘œÂ' then
+     MessageBox(Handle,'»œ·Ì· ›—ÊŒ Â ‘œ‰ „Ê Ê— «‰ Œ«»Ì ° ‰„Ì  Ê«‰Ìœ „‘Œ’«  ¬‰ —« Õ–› ‰„«ÌÌœ','!Œÿ«',MB_OK or MB_RIGHT or MB_ICONEXCLAMATION)
+    else
+    begin
+      if MessageBox(Handle,'„‘Œ’«  „Ê Ê— «‰ Œ«»Ì Õ–› ê—œœø','?',MB_YESNO or MB_RIGHT  or MB_RTLREADING or MB_ICONQUESTION)=id_yes then
+      begin
+        DataM_input_data.ADOQ_kharid_motor.Delete;
+        type_;
+        MessageBox(Handle,'„‘Œ’«  „Ê Ê— «‰ Œ«»Ì Õ–› ê—œÌœ','!  ÊÃÂ ',MB_ok or MB_RIGHT or MB_RTLREADING or MB_ICONINFORMATION);
+      end;
+    end;
+  end;
+end;
+
+end.

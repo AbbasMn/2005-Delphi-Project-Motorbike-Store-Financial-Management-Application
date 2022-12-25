@@ -1,0 +1,783 @@
+object DataM_input_data: TDataM_input_data
+  OldCreateOrder = False
+  Left = 237
+  Top = 238
+  Height = 382
+  Width = 665
+  object ADOConnection1: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=motocycel.mdb;Persi' +
+      'st Security Info=False;Jet OLEDB:Database Password=8045370492413' +
+      '36'
+    LoginPrompt = False
+    Mode = cmShareDenyNone
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 24
+    Top = 8
+  end
+  object ADOQ_forosh: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from T_moshakhasate_forosh')
+    Left = 160
+    Top = 8
+    object ADOQ_foroshforosh_geymat: TFloatField
+      FieldName = 'forosh_geymat'
+    end
+    object ADOQ_foroshforosh_nagd: TFloatField
+      FieldName = 'forosh_nagd'
+    end
+    object ADOQ_foroshforosh_bagimande: TFloatField
+      FieldName = 'forosh_bagimande'
+    end
+    object ADOQ_foroshforosh_tedad_gest: TSmallintField
+      FieldName = 'forosh_tedad_gest'
+    end
+    object ADOQ_foroshforosh_mablagh_gest: TFloatField
+      FieldName = 'forosh_mablagh_gest'
+    end
+    object ADOQ_foroshforosh_tarikh: TWideStringField
+      FieldName = 'forosh_tarikh'
+      Size = 12
+    end
+    object ADOQ_foroshcod: TAutoIncField
+      FieldName = 'cod'
+      ReadOnly = True
+    end
+    object ADOQ_foroshmotor_name: TWideStringField
+      FieldName = 'motor_name'
+      Size = 15
+    end
+    object ADOQ_foroshmotor_system: TWideStringField
+      FieldName = 'motor_system'
+      Size = 15
+    end
+    object ADOQ_foroshmotor_model: TWideStringField
+      FieldName = 'motor_model'
+      Size = 15
+    end
+    object ADOQ_foroshmotor_sale_sakht: TWideStringField
+      FieldName = 'motor_sale_sakht'
+      Size = 4
+    end
+    object ADOQ_foroshmotor_shomare_tane: TWideStringField
+      FieldName = 'motor_shomare_tane'
+      Size = 15
+    end
+    object ADOQ_foroshmotor_shomare_motor: TWideStringField
+      FieldName = 'motor_shomare_motor'
+      Size = 15
+    end
+    object ADOQ_foroshmotor_rang: TWideStringField
+      FieldName = 'motor_rang'
+      Size = 15
+    end
+    object ADOQ_foroshmotor_plak_bala: TWideStringField
+      FieldName = 'motor_plak_bala'
+      Size = 5
+    end
+    object ADOQ_foroshmotor_plak_shahr: TWideStringField
+      FieldName = 'motor_plak_shahr'
+      Size = 15
+    end
+    object ADOQ_foroshmotor_plak_paein: TWideStringField
+      FieldName = 'motor_plak_paein'
+      Size = 2
+    end
+    object ADOQ_foroshmotor_tozihat: TWideStringField
+      FieldName = 'motor_tozihat'
+      Size = 45
+    end
+    object ADOQ_foroshkharidar_name: TWideStringField
+      FieldName = 'kharidar_name'
+      Size = 15
+    end
+    object ADOQ_foroshkharidar_family: TWideStringField
+      FieldName = 'kharidar_family'
+    end
+    object ADOQ_foroshkharidar_pedar: TWideStringField
+      FieldName = 'kharidar_pedar'
+      Size = 15
+    end
+    object ADOQ_foroshkharidar_sh_shenasname: TWideStringField
+      FieldName = 'kharidar_sh_shenasname'
+      Size = 10
+    end
+    object ADOQ_foroshkharidar_sadere: TWideStringField
+      FieldName = 'kharidar_sadere'
+      Size = 15
+    end
+    object ADOQ_foroshkharidar_tavalod: TWideStringField
+      FieldName = 'kharidar_tavalod'
+      Size = 12
+    end
+    object ADOQ_foroshkharidar_cod_meli: TWideStringField
+      FieldName = 'kharidar_cod_meli'
+      Size = 10
+    end
+    object ADOQ_foroshkharidar_tele_sabet: TWideStringField
+      FieldName = 'kharidar_tele_sabet'
+      Size = 12
+    end
+    object ADOQ_foroshkharidar_tele_hamrah: TWideStringField
+      FieldName = 'kharidar_tele_hamrah'
+      Size = 12
+    end
+    object ADOQ_foroshkharidar_adress: TWideStringField
+      FieldName = 'kharidar_adress'
+      Size = 100
+    end
+    object ADOQ_foroshforosh_darsad_sod: TSmallintField
+      FieldName = 'forosh_darsad_sod'
+    end
+    object ADOQ_foroshforosh_mablaghe_sod: TFloatField
+      FieldName = 'forosh_mablaghe_sod'
+    end
+    object ADOQ_foroshforosh_bagimande_kol: TFloatField
+      FieldName = 'forosh_bagimande_kol'
+    end
+    object ADOQ_foroshzemanat_bank: TWideStringField
+      FieldName = 'zemanat_bank'
+    end
+    object ADOQ_foroshzemanat_shobe: TWideStringField
+      FieldName = 'zemanat_shobe'
+      Size = 15
+    end
+    object ADOQ_foroshzemanat_tarikh_check: TWideStringField
+      FieldName = 'zemanat_tarikh_check'
+      Size = 12
+    end
+    object ADOQ_foroshzemanat_jari: TWideStringField
+      FieldName = 'zemanat_jari'
+      Size = 15
+    end
+    object ADOQ_foroshzemanat_sab_check: TWideStringField
+      FieldName = 'zemanat_sab_check'
+      Size = 30
+    end
+    object ADOQ_foroshzemanat_shomare_check: TWideStringField
+      FieldName = 'zemanat_shomare_check'
+      Size = 10
+    end
+    object ADOQ_foroshzemanat_mablagh_check: TFloatField
+      FieldName = 'zemanat_mablagh_check'
+    end
+    object ADOQ_foroshtedad_gest_pardakhti: TIntegerField
+      FieldName = 'tedad_gest_pardakhti'
+    end
+    object ADOQ_foroshtedad_gest_mande: TIntegerField
+      FieldName = 'tedad_gest_mande'
+    end
+    object ADOQ_foroshroze_pardakhte_gest: TWideStringField
+      FieldName = 'roze_pardakhte_gest'
+      Size = 2
+    end
+    object ADOQ_foroshtarikh_pardakht_geste_badi: TWideStringField
+      FieldName = 'tarikh_pardakht_geste_badi'
+      Size = 12
+    end
+    object ADOQ_foroshjarime_kol: TFloatField
+      FieldName = 'jarime_kol'
+    end
+    object ADOQ_foroshforosh_geymate_nahaei: TFloatField
+      FieldName = 'forosh_geymate_nahaei'
+    end
+    object ADOQ_foroshzemanat_telephon: TWideStringField
+      FieldName = 'zemanat_telephon'
+      Size = 12
+    end
+    object ADOQ_foroshkharidar_code_posti: TWideStringField
+      FieldName = 'kharidar_code_posti'
+      Size = 15
+    end
+  end
+  object ADOQ_show_kholase_forosh: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    AfterScroll = ADOQ_show_kholase_foroshAfterScroll
+    Parameters = <>
+    SQL.Strings = (
+      
+        'select kharidar_name,kharidar_family,kharidar_pedar,motor_name,f' +
+        'orosh_tarikh,cod'
+      'from T_moshakhasate_forosh')
+    Left = 72
+    Top = 80
+    object ADOQ_show_kholase_foroshkharidar_name: TWideStringField
+      FieldName = 'kharidar_name'
+      Size = 15
+    end
+    object ADOQ_show_kholase_foroshkharidar_family: TWideStringField
+      FieldName = 'kharidar_family'
+    end
+    object ADOQ_show_kholase_foroshkharidar_pedar: TWideStringField
+      FieldName = 'kharidar_pedar'
+      Size = 15
+    end
+    object ADOQ_show_kholase_foroshmotor_name: TWideStringField
+      FieldName = 'motor_name'
+      Size = 15
+    end
+    object ADOQ_show_kholase_foroshforosh_tarikh: TWideStringField
+      FieldName = 'forosh_tarikh'
+      Size = 12
+    end
+    object ADOQ_show_kholase_foroshcod: TAutoIncField
+      FieldName = 'cod'
+      ReadOnly = True
+    end
+  end
+  object ADOQ_show_hame_bar_asase_kholase: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select  *'
+      'from T_moshakhasate_forosh')
+    Left = 272
+    Top = 72
+    object ADOQ_show_hame_bar_asase_kholaseforosh_geymat: TFloatField
+      FieldName = 'forosh_geymat'
+    end
+    object ADOQ_show_hame_bar_asase_kholaseforosh_nagd: TFloatField
+      FieldName = 'forosh_nagd'
+    end
+    object ADOQ_show_hame_bar_asase_kholaseforosh_bagimande: TFloatField
+      FieldName = 'forosh_bagimande'
+    end
+    object ADOQ_show_hame_bar_asase_kholaseforosh_tedad_gest: TSmallintField
+      FieldName = 'forosh_tedad_gest'
+    end
+    object ADOQ_show_hame_bar_asase_kholaseforosh_mablagh_gest: TFloatField
+      FieldName = 'forosh_mablagh_gest'
+    end
+    object ADOQ_show_hame_bar_asase_kholaseforosh_tarikh: TWideStringField
+      FieldName = 'forosh_tarikh'
+      Size = 12
+    end
+    object ADOQ_show_hame_bar_asase_kholasecod: TAutoIncField
+      FieldName = 'cod'
+      ReadOnly = True
+    end
+    object ADOQ_show_hame_bar_asase_kholasemotor_name: TWideStringField
+      FieldName = 'motor_name'
+      Size = 15
+    end
+    object ADOQ_show_hame_bar_asase_kholasemotor_system: TWideStringField
+      FieldName = 'motor_system'
+      Size = 15
+    end
+    object ADOQ_show_hame_bar_asase_kholasemotor_model: TWideStringField
+      FieldName = 'motor_model'
+      Size = 15
+    end
+    object ADOQ_show_hame_bar_asase_kholasemotor_sale_sakht: TWideStringField
+      FieldName = 'motor_sale_sakht'
+      Size = 4
+    end
+    object ADOQ_show_hame_bar_asase_kholasemotor_shomare_tane: TWideStringField
+      FieldName = 'motor_shomare_tane'
+      Size = 15
+    end
+    object ADOQ_show_hame_bar_asase_kholasemotor_shomare_motor: TWideStringField
+      FieldName = 'motor_shomare_motor'
+      Size = 15
+    end
+    object ADOQ_show_hame_bar_asase_kholasemotor_rang: TWideStringField
+      FieldName = 'motor_rang'
+      Size = 15
+    end
+    object ADOQ_show_hame_bar_asase_kholasemotor_plak_bala: TWideStringField
+      FieldName = 'motor_plak_bala'
+      Size = 5
+    end
+    object ADOQ_show_hame_bar_asase_kholasemotor_plak_shahr: TWideStringField
+      FieldName = 'motor_plak_shahr'
+      Size = 15
+    end
+    object ADOQ_show_hame_bar_asase_kholasemotor_plak_paein: TWideStringField
+      FieldName = 'motor_plak_paein'
+      Size = 2
+    end
+    object ADOQ_show_hame_bar_asase_kholasemotor_tozihat: TWideStringField
+      FieldName = 'motor_tozihat'
+      Size = 45
+    end
+    object ADOQ_show_hame_bar_asase_kholasekharidar_name: TWideStringField
+      FieldName = 'kharidar_name'
+      Size = 15
+    end
+    object ADOQ_show_hame_bar_asase_kholasekharidar_family: TWideStringField
+      FieldName = 'kharidar_family'
+    end
+    object ADOQ_show_hame_bar_asase_kholasekharidar_pedar: TWideStringField
+      FieldName = 'kharidar_pedar'
+      Size = 15
+    end
+    object ADOQ_show_hame_bar_asase_kholasekharidar_sh_shenasname: TWideStringField
+      FieldName = 'kharidar_sh_shenasname'
+      Size = 10
+    end
+    object ADOQ_show_hame_bar_asase_kholasekharidar_sadere: TWideStringField
+      FieldName = 'kharidar_sadere'
+      Size = 15
+    end
+    object ADOQ_show_hame_bar_asase_kholasekharidar_tavalod: TWideStringField
+      FieldName = 'kharidar_tavalod'
+      Size = 12
+    end
+    object ADOQ_show_hame_bar_asase_kholasekharidar_cod_meli: TWideStringField
+      FieldName = 'kharidar_cod_meli'
+      Size = 10
+    end
+    object ADOQ_show_hame_bar_asase_kholasekharidar_tele_sabet: TWideStringField
+      FieldName = 'kharidar_tele_sabet'
+      Size = 12
+    end
+    object ADOQ_show_hame_bar_asase_kholasekharidar_tele_hamrah: TWideStringField
+      FieldName = 'kharidar_tele_hamrah'
+      Size = 12
+    end
+    object ADOQ_show_hame_bar_asase_kholasekharidar_adress: TWideStringField
+      FieldName = 'kharidar_adress'
+      Size = 100
+    end
+    object ADOQ_show_hame_bar_asase_kholaseforosh_darsad_sod: TSmallintField
+      FieldName = 'forosh_darsad_sod'
+    end
+    object ADOQ_show_hame_bar_asase_kholaseforosh_mablaghe_sod: TFloatField
+      FieldName = 'forosh_mablaghe_sod'
+    end
+    object ADOQ_show_hame_bar_asase_kholaseforosh_bagimande_kol: TFloatField
+      FieldName = 'forosh_bagimande_kol'
+    end
+    object ADOQ_show_hame_bar_asase_kholasezemanat_bank: TWideStringField
+      FieldName = 'zemanat_bank'
+    end
+    object ADOQ_show_hame_bar_asase_kholasezemanat_shobe: TWideStringField
+      FieldName = 'zemanat_shobe'
+      Size = 15
+    end
+    object ADOQ_show_hame_bar_asase_kholasezemanat_tarikh_check: TWideStringField
+      FieldName = 'zemanat_tarikh_check'
+      Size = 12
+    end
+    object ADOQ_show_hame_bar_asase_kholasezemanat_jari: TWideStringField
+      FieldName = 'zemanat_jari'
+      Size = 15
+    end
+    object ADOQ_show_hame_bar_asase_kholasezemanat_sab_check: TWideStringField
+      FieldName = 'zemanat_sab_check'
+      Size = 30
+    end
+    object ADOQ_show_hame_bar_asase_kholasezemanat_shomare_check: TWideStringField
+      FieldName = 'zemanat_shomare_check'
+      Size = 10
+    end
+    object ADOQ_show_hame_bar_asase_kholasezemanat_mablagh_check: TFloatField
+      FieldName = 'zemanat_mablagh_check'
+    end
+    object ADOQ_show_hame_bar_asase_kholasetedad_gest_pardakhti: TIntegerField
+      FieldName = 'tedad_gest_pardakhti'
+    end
+    object ADOQ_show_hame_bar_asase_kholasetedad_gest_mande: TIntegerField
+      FieldName = 'tedad_gest_mande'
+    end
+    object ADOQ_show_hame_bar_asase_kholaseroze_pardakhte_gest: TWideStringField
+      FieldName = 'roze_pardakhte_gest'
+      Size = 2
+    end
+    object ADOQ_show_hame_bar_asase_kholasetarikh_pardakht_geste_badi: TWideStringField
+      FieldName = 'tarikh_pardakht_geste_badi'
+      Size = 12
+    end
+    object ADOQ_show_hame_bar_asase_kholasejarime_kol: TFloatField
+      FieldName = 'jarime_kol'
+    end
+    object ADOQ_show_hame_bar_asase_kholaseforosh_geymate_nahaei: TFloatField
+      FieldName = 'forosh_geymate_nahaei'
+    end
+    object ADOQ_show_hame_bar_asase_kholasezemanat_telephon: TWideStringField
+      FieldName = 'zemanat_telephon'
+      Size = 12
+    end
+    object ADOQ_show_hame_bar_asase_kholasekharidar_code_posti: TWideStringField
+      FieldName = 'kharidar_code_posti'
+      Size = 15
+    end
+  end
+  object ADOQ_show_kholase_forosh_vase_pardakht_gest: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    AfterScroll = ADOQ_show_kholase_forosh_vase_pardakht_gestAfterScroll
+    Parameters = <>
+    SQL.Strings = (
+      
+        'select kharidar_family,forosh_tarikh,tedad_gest_pardakhti,tedad_' +
+        'gest_mande'
+      ',cod'
+      'from T_moshakhasate_forosh')
+    Left = 120
+    Top = 160
+    object ADOQ_show_kholase_forosh_vase_pardakht_gestkharidar_family: TWideStringField
+      FieldName = 'kharidar_family'
+    end
+    object ADOQ_show_kholase_forosh_vase_pardakht_gestforosh_tarikh: TWideStringField
+      FieldName = 'forosh_tarikh'
+      Size = 12
+    end
+    object ADOQ_show_kholase_forosh_vase_pardakht_gesttedad_gest_pardakhti: TIntegerField
+      FieldName = 'tedad_gest_pardakhti'
+    end
+    object ADOQ_show_kholase_forosh_vase_pardakht_gesttedad_gest_mande: TIntegerField
+      FieldName = 'tedad_gest_mande'
+    end
+    object ADOQ_show_kholase_forosh_vase_pardakht_gestcod: TAutoIncField
+      FieldName = 'cod'
+      ReadOnly = True
+    end
+  end
+  object show_bedehkare_gest_bar_asase_kholase_bedehkarha: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select  *'
+      'from T_moshakhasate_forosh')
+    Left = 424
+    Top = 128
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_geymat: TFloatField
+      FieldName = 'forosh_geymat'
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_nagd: TFloatField
+      FieldName = 'forosh_nagd'
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_bagimande: TFloatField
+      FieldName = 'forosh_bagimande'
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_tedad_gest: TSmallintField
+      FieldName = 'forosh_tedad_gest'
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_mablagh_gest: TFloatField
+      FieldName = 'forosh_mablagh_gest'
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_tarikh: TWideStringField
+      FieldName = 'forosh_tarikh'
+      Size = 12
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhacod: TAutoIncField
+      FieldName = 'cod'
+      ReadOnly = True
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_name: TWideStringField
+      FieldName = 'motor_name'
+      Size = 15
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_system: TWideStringField
+      FieldName = 'motor_system'
+      Size = 15
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_model: TWideStringField
+      FieldName = 'motor_model'
+      Size = 15
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_sale_sakht: TWideStringField
+      FieldName = 'motor_sale_sakht'
+      Size = 4
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_shomare_tane: TWideStringField
+      FieldName = 'motor_shomare_tane'
+      Size = 15
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_shomare_motor: TWideStringField
+      FieldName = 'motor_shomare_motor'
+      Size = 15
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_rang: TWideStringField
+      FieldName = 'motor_rang'
+      Size = 15
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_plak_bala: TWideStringField
+      FieldName = 'motor_plak_bala'
+      Size = 5
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_plak_shahr: TWideStringField
+      FieldName = 'motor_plak_shahr'
+      Size = 15
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_plak_paein: TWideStringField
+      FieldName = 'motor_plak_paein'
+      Size = 2
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhamotor_tozihat: TWideStringField
+      FieldName = 'motor_tozihat'
+      Size = 45
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_name: TWideStringField
+      FieldName = 'kharidar_name'
+      Size = 15
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_family: TWideStringField
+      FieldName = 'kharidar_family'
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_pedar: TWideStringField
+      FieldName = 'kharidar_pedar'
+      Size = 15
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_sh_shenasname: TWideStringField
+      FieldName = 'kharidar_sh_shenasname'
+      Size = 10
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_sadere: TWideStringField
+      FieldName = 'kharidar_sadere'
+      Size = 15
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_tavalod: TWideStringField
+      FieldName = 'kharidar_tavalod'
+      Size = 12
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_cod_meli: TWideStringField
+      FieldName = 'kharidar_cod_meli'
+      Size = 10
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_tele_sabet: TWideStringField
+      FieldName = 'kharidar_tele_sabet'
+      Size = 12
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_tele_hamrah: TWideStringField
+      FieldName = 'kharidar_tele_hamrah'
+      Size = 12
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhakharidar_adress: TWideStringField
+      FieldName = 'kharidar_adress'
+      Size = 100
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_darsad_sod: TSmallintField
+      FieldName = 'forosh_darsad_sod'
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_mablaghe_sod: TFloatField
+      FieldName = 'forosh_mablaghe_sod'
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhaforosh_bagimande_kol: TFloatField
+      FieldName = 'forosh_bagimande_kol'
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhazemanat_bank: TWideStringField
+      FieldName = 'zemanat_bank'
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhazemanat_shobe: TWideStringField
+      FieldName = 'zemanat_shobe'
+      Size = 15
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhazemanat_tarikh_check: TWideStringField
+      FieldName = 'zemanat_tarikh_check'
+      Size = 12
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhazemanat_jari: TWideStringField
+      FieldName = 'zemanat_jari'
+      Size = 15
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhazemanat_sab_check: TWideStringField
+      FieldName = 'zemanat_sab_check'
+      Size = 30
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhazemanat_shomare_check: TWideStringField
+      FieldName = 'zemanat_shomare_check'
+      Size = 10
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhazemanat_mablagh_check: TFloatField
+      FieldName = 'zemanat_mablagh_check'
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhatedad_gest_pardakhti: TIntegerField
+      FieldName = 'tedad_gest_pardakhti'
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarhatedad_gest_mande: TIntegerField
+      FieldName = 'tedad_gest_mande'
+    end
+    object show_bedehkare_gest_bar_asase_kholase_bedehkarharoze_pardakhte_gest: TWideStringField
+      FieldName = 'roze_pardakhte_gest'
+      Size = 2
+    end
+  end
+  object ADOQ_bime: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from  T_tahvil_bime')
+    Left = 544
+    Top = 8
+    object ADOQ_bimecod_forosh: TIntegerField
+      FieldName = 'cod_forosh'
+    end
+    object ADOQ_bimecod: TAutoIncField
+      FieldName = 'cod'
+      ReadOnly = True
+    end
+    object ADOQ_bimebime_tahvil: TWideStringField
+      FieldName = 'bime_tahvil'
+    end
+  end
+  object ADOQ_bime2: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from  T_tahvil_bime')
+    Left = 600
+    Top = 8
+    object IntegerField1: TIntegerField
+      FieldName = 'cod_forosh'
+    end
+    object AutoIncField1: TAutoIncField
+      FieldName = 'cod'
+      ReadOnly = True
+    end
+    object WideStringField1: TWideStringField
+      FieldName = 'bime_tahvil'
+    end
+  end
+  object ADOQ_check_dovom: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from t_cecke_dovome_zemanat')
+    Left = 432
+    Top = 24
+    object ADOQ_check_dovomkharidar_family: TWideStringField
+      FieldName = 'kharidar_family'
+    end
+    object ADOQ_check_dovomkharidar_sh_shenasname: TWideStringField
+      FieldName = 'kharidar_sh_shenasname'
+      Size = 10
+    end
+    object ADOQ_check_dovomforosh_tarikh: TWideStringField
+      FieldName = 'forosh_tarikh'
+      Size = 12
+    end
+    object ADOQ_check_dovomzemanat_bank: TWideStringField
+      FieldName = 'zemanat_bank'
+    end
+    object ADOQ_check_dovomzemanat_shobe: TWideStringField
+      FieldName = 'zemanat_shobe'
+      Size = 15
+    end
+    object ADOQ_check_dovomzemanat_tarikh_check: TWideStringField
+      FieldName = 'zemanat_tarikh_check'
+      Size = 12
+    end
+    object ADOQ_check_dovomzemanat_jari: TWideStringField
+      FieldName = 'zemanat_jari'
+      Size = 15
+    end
+    object ADOQ_check_dovomzemanat_sab_check: TWideStringField
+      FieldName = 'zemanat_sab_check'
+      Size = 30
+    end
+    object ADOQ_check_dovomzemanat_shomare_check: TWideStringField
+      FieldName = 'zemanat_shomare_check'
+      Size = 10
+    end
+    object ADOQ_check_dovomzemanat_mablagh_check: TFloatField
+      FieldName = 'zemanat_mablagh_check'
+    end
+    object ADOQ_check_dovomzemanat_telephon: TWideStringField
+      FieldName = 'zemanat_telephon'
+      Size = 12
+    end
+    object ADOQ_check_dovomcod: TAutoIncField
+      FieldName = 'cod'
+      ReadOnly = True
+    end
+  end
+  object ADOQ_kharid_motor: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from T_motors')
+    Left = 224
+    Top = 144
+    object ADOQ_kharid_motormotor_name: TWideStringField
+      FieldName = 'motor_name'
+      Size = 15
+    end
+    object ADOQ_kharid_motormotor_system: TWideStringField
+      FieldName = 'motor_system'
+      Size = 15
+    end
+    object ADOQ_kharid_motormotor_model: TWideStringField
+      FieldName = 'motor_model'
+      Size = 15
+    end
+    object ADOQ_kharid_motormotor_sale_sakht: TWideStringField
+      FieldName = 'motor_sale_sakht'
+      Size = 4
+    end
+    object ADOQ_kharid_motormotor_shomare_tane: TWideStringField
+      FieldName = 'motor_shomare_tane'
+      Size = 15
+    end
+    object ADOQ_kharid_motormotor_shomare_motor: TWideStringField
+      FieldName = 'motor_shomare_motor'
+      Size = 15
+    end
+    object ADOQ_kharid_motormotor_rang: TWideStringField
+      FieldName = 'motor_rang'
+      Size = 15
+    end
+    object ADOQ_kharid_motormotor_plak_bala: TWideStringField
+      FieldName = 'motor_plak_bala'
+      Size = 5
+    end
+    object ADOQ_kharid_motormotor_plak_shahr: TWideStringField
+      FieldName = 'motor_plak_shahr'
+      Size = 15
+    end
+    object ADOQ_kharid_motormotor_plak_paein: TWideStringField
+      FieldName = 'motor_plak_paein'
+      Size = 2
+    end
+    object ADOQ_kharid_motorcod: TAutoIncField
+      FieldName = 'cod'
+      ReadOnly = True
+    end
+    object ADOQ_kharid_motormotor_forosh: TWideStringField
+      FieldName = 'motor_forosh'
+      Size = 12
+    end
+  end
+  object ADOQ_tedad_mototr_bar_system: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select  count(*) as tedad_ ,motor_system'
+      ''
+      'from T_moshakhasate_forosh'
+      ''
+      'group by motor_system')
+    Left = 392
+    Top = 264
+    object ADOQ_tedad_mototr_bar_systemtedad_: TIntegerField
+      FieldName = 'tedad_'
+    end
+    object ADOQ_tedad_mototr_bar_systemmotor_system: TWideStringField
+      FieldName = 'motor_system'
+      Size = 15
+    end
+  end
+end

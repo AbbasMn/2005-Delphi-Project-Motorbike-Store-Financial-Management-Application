@@ -1,0 +1,263 @@
+object frm_moteakherin: Tfrm_moteakherin
+  Left = 106
+  Top = 169
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = #1605#1578#1575#1582#1585#1610#1606' '#1583#1585' '#1662#1585#1583#1575#1582#1578' '#1575#1602#1587#1575#1591
+  ClientHeight = 477
+  ClientWidth = 822
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnShow = FormShow
+  DesignSize = (
+    822
+    477)
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label10: TLabel
+    Left = 711
+    Top = 70
+    Width = 63
+    Height = 16
+    Anchors = [akTop, akRight]
+    BiDiMode = bdRightToLeftReadingOnly
+    Caption = #1578#1604#1601#1606' '#1579#1575#1576#1578' :'
+    Font.Charset = ARABIC_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentBiDiMode = False
+    ParentFont = False
+  end
+  object DBText7: TDBText
+    Left = 504
+    Top = 68
+    Width = 173
+    Height = 21
+    Anchors = [akTop, akRight]
+    BiDiMode = bdRightToLeft
+    Color = clBtnFace
+    DataField = 'kharidar_tele_sabet'
+    DataSource = DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMaroon
+    Font.Height = -19
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentBiDiMode = False
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label1: TLabel
+    Left = 711
+    Top = 94
+    Width = 66
+    Height = 16
+    Anchors = [akTop, akRight]
+    BiDiMode = bdRightToLeftReadingOnly
+    Caption = #1578#1604#1601#1606' '#1607#1605#1585#1575#1607':'
+    Font.Charset = ARABIC_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentBiDiMode = False
+    ParentFont = False
+  end
+  object DBText1: TDBText
+    Left = 504
+    Top = 92
+    Width = 173
+    Height = 21
+    Anchors = [akTop, akRight]
+    BiDiMode = bdRightToLeft
+    Color = clBtnFace
+    DataField = 'kharidar_tele_hamrah'
+    DataSource = DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMaroon
+    Font.Height = -19
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentBiDiMode = False
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 377
+    Top = 70
+    Width = 35
+    Height = 16
+    BiDiMode = bdRightToLeftReadingOnly
+    Caption = #1570#1583#1585#1587':'
+    Font.Charset = ARABIC_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentBiDiMode = False
+    ParentFont = False
+  end
+  object suiDBGrid1: TsuiDBGrid
+    Left = 2
+    Top = 119
+    Width = 819
+    Height = 356
+    TabStop = False
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    BiDiMode = bdRightToLeft
+    BorderStyle = bsNone
+    Color = clBtnFace
+    Ctl3D = True
+    DataSource = DataSource1
+    FixedColor = clMenu
+    Font.Charset = ARABIC_CHARSET
+    Font.Color = clBlack
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgAlwaysShowSelection]
+    ParentBiDiMode = False
+    ParentCtl3D = False
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clBlack
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    UIStyle = FromThemeFile
+    BorderColor = clBlack
+    FocusedColor = clNavy
+    SelectedColor = clYellow
+    FontColor = clBlack
+    TitleFontColor = clBlack
+    FixedBGColor = clMenu
+    BGColor = clBtnFace
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'kharidar_family'
+        Title.Alignment = taCenter
+        Title.Caption = #1606#1575#1605' '#1582#1575#1606#1608#1575#1583#1711#1610
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'kharidar_name'
+        Title.Alignment = taCenter
+        Title.Caption = #1606#1575#1605
+        Width = 110
+        Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'forosh_tarikh'
+        Title.Alignment = taCenter
+        Title.Caption = #1578#1575#1585#1610#1582' '#1582#1585#1610#1583
+        Width = 85
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'tedade_mahaye_takhir'
+        Title.Alignment = taCenter
+        Title.Caption = #1578#1593#1583#1575#1583' '#1605#1575#1607' '#1578#1575#1582#1610#1585
+        Width = 65
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'forosh_tedad_gest'
+        Title.Alignment = taCenter
+        Title.Caption = #1578#1593#1583#1575#1583' '#1705#1604' '#1575#1602#1587#1575#1591
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'tedad_gest_pardakhti'
+        Title.Alignment = taCenter
+        Title.Caption = #1578#1593#1583#1575#1583' '#1602#1587#1591' '#1662#1585#1583#1575#1582#1578#1610
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'tedad_gest_mande'
+        Title.Alignment = taCenter
+        Title.Caption = #1578#1593#1583#1575#1583' '#1602#1587#1591' '#1605#1575#1606#1583#1607
+        Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'tarikh_pardakht_geste_badi'
+        Title.Alignment = taCenter
+        Title.Caption = #1578#1575#1585#1610#1582' '#1575#1608#1604#1610#1606' '#1602#1587#1591' '#1662#1585#1583#1575#1582#1578' '#1606#1588#1583#1607
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'roze_pardakhte_gest'
+        Title.Alignment = taCenter
+        Title.Caption = #1585#1608#1586' '#1662#1585#1583#1575#1582#1578' '#1602#1587#1591' '#1583#1585' '#1607#1585' '#1605#1575#1607
+        Width = 130
+        Visible = True
+      end>
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 6
+    Top = 6
+    Width = 811
+    Height = 58
+    Anchors = [akLeft, akTop, akRight]
+    BiDiMode = bdRightToLeft
+    Caption = '  '#1575#1606#1578#1582#1575#1576' '#1578#1585#1578#1610#1576' '#1606#1605#1575#1610#1588' '
+    Columns = 3
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Items.Strings = (
+      #1576#1585' '#1575#1587#1575#1587' '#1576#1610#1588#1578#1585#1610#1606' '#1578#1593#1583#1575#1583' '#1605#1575#1607' '#1578#1575#1582#1610#1585
+      #1576#1585' '#1575#1587#1575#1587' '#1705#1605#1578#1585#1610#1606' '#1578#1593#1583#1575#1583' '#1605#1575#1607' '#1578#1575#1582#1610#1585
+      #1576#1585' '#1575#1587#1575#1587' '#1606#1575#1605' '#1582#1575#1606#1608#1575#1583#1711#1610' '#1608' '#1606#1575#1605)
+    ParentBiDiMode = False
+    ParentFont = False
+    TabOrder = 1
+    OnClick = RadioGroup1Click
+  end
+  object DBMemo1: TDBMemo
+    Left = 8
+    Top = 66
+    Width = 369
+    Height = 48
+    BiDiMode = bdRightToLeft
+    Color = clMenuBar
+    DataField = 'kharidar_adress'
+    DataSource = DataSource1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clMaroon
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentBiDiMode = False
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 2
+  end
+  object DataSource1: TDataSource
+    DataSet = DataM_agsat.ADOQ_insert_moteakherin
+    Left = 120
+    Top = 96
+  end
+end

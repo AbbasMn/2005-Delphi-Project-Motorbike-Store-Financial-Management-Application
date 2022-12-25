@@ -1,0 +1,80 @@
+program khobiar;
+
+uses
+  Forms,
+  unt_data_input in 'unt_data_input.pas' {frm_data_input},
+  Unt_datam_input_data in 'Unt_datam_input_data.pas' {DataM_input_data: TDataModule},
+  unt_data_input2 in 'unt_data_input2.pas' {frm_data_input2},
+  unt_show_forosh in 'unt_show_forosh.pas' {frm_show_forosh},
+  unt_main in 'unt_main.pas' {frm_main},
+  unt_pardakht_gest in 'unt_pardakht_gest.pas' {frm_pardakht_gest},
+  unt_DataM_agsat in 'unt_DataM_agsat.pas' {DataM_agsat: TDataModule},
+  unt_sabt_pardakht_gest in 'unt_sabt_pardakht_gest.pas' {frm_sabt_pardakht_gest},
+  Taghvim in 'Taghvim.pas' {_taghvim},
+  unt_print_pardakhte_gest in 'unt_print_pardakhte_gest.pas' {frm_print_pardakhte_gest},
+  unt_print_matne_forosh in 'unt_print_matne_forosh.pas' {frm_print_matne_forosh},
+  unt_search in 'unt_search.pas' {frm_search},
+  unt_tahvil_karte_sokht in 'unt_tahvil_karte_sokht.pas' {frm_tahvil_karte_sokht},
+  unt_tahvil_karte_motor in 'unt_tahvil_karte_motor.pas' {frm_tahvil_karte_motor},
+  unt_tahvil_sanad in 'unt_tahvil_sanad.pas' {frm_tahvil_sanad},
+  unt_DataM_tahvil_joz in 'unt_DataM_tahvil_joz.pas' {DataM_tahvil_joz: TDataModule},
+  unt_eslahe_kharidar in 'unt_eslahe_kharidar.pas' {frm_eslahe_kharidar},
+  unt_eslahe_motor in 'unt_eslahe_motor.pas' {frm_eslahe_motor},
+  unt_eslahe_forosh in 'unt_eslahe_forosh.pas' {frm_eslahe_forosh},
+  unt_eslahe_zemanat in 'unt_eslahe_zemanat.pas' {frm_eslahe_zemanat},
+  unt_login in 'unt_login.pas' {Frm_login},
+  unt_dabare in 'unt_dabare.pas' {frm_dabare},
+  Unt_login_change in 'Unt_login_change.pas' {Frm_login_change},
+  unt_moteakherin in 'unt_moteakherin.pas' {frm_moteakherin},
+  unt_check_dovom in 'unt_check_dovom.pas' {frm_check_dovom},
+  unt_forosh_namoaian in 'unt_forosh_namoaian.pas' {frm_forosh_namoaian},
+  unt_zabte_pardakhte_namoaian in 'unt_zabte_pardakhte_namoaian.pas' {frm_zabte_pardakhte_namoaian},
+  unt_namoaian_mohasebe_sod in 'unt_namoaian_mohasebe_sod.pas' {frm_namoaian_mohasebe_sod},
+  unt_daryafte_sode_tagsit in 'unt_daryafte_sode_tagsit.pas' {frm_daryafte_sode_tagsit},
+  unt_kharide_motor in 'unt_kharide_motor.pas' {frm_kharide_motor},
+  unt_foroshe_nagdi in 'unt_foroshe_nagdi.pas' {frm_foroshe_nagdi},
+  unt_search_forosh in 'unt_search_forosh.pas' {frm_search_forosh},
+  unt_tedad_motor_bar_system in 'unt_tedad_motor_bar_system.pas' {Frm_tedad_motor_bar_system},
+  unt_view_anbar_motor in 'unt_view_anbar_motor.pas' {frm_view_anbar_motor};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.Title := 'Khobiar Store';
+  Application.CreateForm(Tfrm_main, frm_main);
+  Application.CreateForm(Tfrm_data_input, frm_data_input);
+  Application.CreateForm(TDataM_input_data, DataM_input_data);
+  Application.CreateForm(Tfrm_data_input2, frm_data_input2);
+  Application.CreateForm(Tfrm_show_forosh, frm_show_forosh);
+  Application.CreateForm(Tfrm_pardakht_gest, frm_pardakht_gest);
+  Application.CreateForm(TDataM_agsat, DataM_agsat);
+  Application.CreateForm(Tfrm_sabt_pardakht_gest, frm_sabt_pardakht_gest);
+  Application.CreateForm(T_taghvim, _taghvim);
+  Application.CreateForm(Tfrm_print_pardakhte_gest, frm_print_pardakhte_gest);
+  Application.CreateForm(Tfrm_print_matne_forosh, frm_print_matne_forosh);
+  Application.CreateForm(Tfrm_search, frm_search);
+  Application.CreateForm(Tfrm_tahvil_karte_sokht, frm_tahvil_karte_sokht);
+  Application.CreateForm(Tfrm_tahvil_karte_motor, frm_tahvil_karte_motor);
+  Application.CreateForm(Tfrm_tahvil_sanad, frm_tahvil_sanad);
+  Application.CreateForm(TDataM_tahvil_joz, DataM_tahvil_joz);
+  Application.CreateForm(Tfrm_eslahe_kharidar, frm_eslahe_kharidar);
+  Application.CreateForm(Tfrm_eslahe_motor, frm_eslahe_motor);
+  Application.CreateForm(Tfrm_eslahe_forosh, frm_eslahe_forosh);
+  Application.CreateForm(Tfrm_eslahe_zemanat, frm_eslahe_zemanat);
+  Application.CreateForm(TFrm_login, Frm_login);
+  Application.CreateForm(Tfrm_dabare, frm_dabare);
+  Application.CreateForm(TFrm_login_change, Frm_login_change);
+  Application.CreateForm(Tfrm_moteakherin, frm_moteakherin);
+  Application.CreateForm(Tfrm_check_dovom, frm_check_dovom);
+  Application.CreateForm(Tfrm_forosh_namoaian, frm_forosh_namoaian);
+  Application.CreateForm(Tfrm_zabte_pardakhte_namoaian, frm_zabte_pardakhte_namoaian);
+  Application.CreateForm(Tfrm_namoaian_mohasebe_sod, frm_namoaian_mohasebe_sod);
+  Application.CreateForm(Tfrm_daryafte_sode_tagsit, frm_daryafte_sode_tagsit);
+  Application.CreateForm(Tfrm_kharide_motor, frm_kharide_motor);
+  Application.CreateForm(Tfrm_foroshe_nagdi, frm_foroshe_nagdi);
+  Application.CreateForm(Tfrm_search_forosh, frm_search_forosh);
+  Application.CreateForm(TFrm_tedad_motor_bar_system, Frm_tedad_motor_bar_system);
+  Application.CreateForm(Tfrm_view_anbar_motor, frm_view_anbar_motor);
+  Application.Run;
+end.
